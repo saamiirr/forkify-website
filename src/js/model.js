@@ -44,7 +44,6 @@ export const loadSearchResults = async function (query) {
   try {
     state.search.query = query;
     const data = await AJAX(`${API_URL}?search=${query}&key=${KEY}`);
-    console.log(data);
 
     state.search.results = data.data.recipes.map(rec => {
       return {
@@ -126,7 +125,7 @@ export const uploadRecipe = async function (newRecipe) {
         const [quantity, unit, description] = ingArr;
         return { quantity: quantity ? +quantity : null, unit, description };
       });
-    console.log(ingredients);
+
     const recipe = {
       title: newRecipe.title,
       publisher: newRecipe.publisher,
@@ -136,11 +135,10 @@ export const uploadRecipe = async function (newRecipe) {
       cooking_time: +newRecipe.cookingTime,
       ingredients,
     };
-    console.log(recipe);
+
     const data = await AJAX(`${API_URL}?key=${KEY}`, recipe);
     state.recipe = createRecipeObject(data);
     addBookmark(state.recipe);
-    console.log(data);
   } catch (err) {
     throw err;
   }
