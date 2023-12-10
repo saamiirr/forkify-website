@@ -12,9 +12,6 @@ import 'core-js/stable'; // for Polyfilling everything else
 import 'regenerator-runtime/runtime'; // for Polyfilling async/await
 const recipeContainer = document.querySelector('.recipe');
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
 // https://forkify-api.herokuapp.com/v2
 
 ///////////////////////////////////////
